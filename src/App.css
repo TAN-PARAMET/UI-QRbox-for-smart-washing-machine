@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.linear{
+
+  background: linear-gradient(to right, #FF7086, #745D97); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
+}
+
+.background {
+
+  background: linear-gradient(to right, #FF7086, #745D97); 
+
+
+}
+
+.shadow {
+
+  box-shadow: 51px 40px 125px -13px rgba(0, 0, 0, 0.1);
+
+
+}
