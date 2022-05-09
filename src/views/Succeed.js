@@ -1,22 +1,30 @@
 import React from 'react'
 import { Outlet, Link } from "react-router-dom";
 import Lottie from 'lottie-react';
-import groovyWalkAnimation from "../lotties/correct.json";
+import animationData from "../lotties/correct.json";
 
 
 
 
 function Succeed() {
 
-
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
 
   
 
 
   return (
     
-    <div style={{ marginTop:'50px', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center;', }}>
-    <Lottie animationData={groovyWalkAnimation} />
+    <div style={{ marginTop:'-30px', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', }}>
+      <Lottie  animationData={animationData}   style={{width:'300px',  }} />
+    
 
     
     <b className='linear' style={{ fontSize:'100px',  }}>ทำรายการสำเร็จ</b>
