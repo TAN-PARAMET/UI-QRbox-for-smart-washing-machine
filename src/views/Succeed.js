@@ -16,12 +16,12 @@ function Succeed() {
   return (
     
     <div style={{ marginTop:'-30px', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', }}>
-      <Lottie  animationData={animationData}   style={{width:'325px', marginBottom:'-50px',  }} />
+      <Lottie  animationData={animationData}   style={{width:'325px', marginBottom:'-50px',  }}  />
     
 
     
     <b className='linear' style={{ fontSize:'80px',  }}>ทำรายการสำเร็จ</b>
-    <p style={{ fontSize:'30px', }}>กรุณายืนรอ 5 วินาทีหรือกดปุ่มชำระเงินเพื่อใช้บริการ</p>
+    <p style={{ fontSize:'30px', marginTop:'-15px', }}>ขอบคุณที่ใช่บริการของพวกเรา</p>
 
     
       
