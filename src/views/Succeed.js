@@ -16,7 +16,7 @@ function Succeed() {
   return (
     
     <div style={{ marginTop:'-30px', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', }}>
-      <Lottie  animationData={correct}   style={{width:'325px', marginBottom:'-50px',  }}  />
+      <Lottie    style={{width:'250px', marginBottom:'-10px',  }}  />
     
 
     
