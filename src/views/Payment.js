@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-function Payment() {
+import { wait } from '@testing-library/user-event/dist/utils';
+ function Payment() {
   const [count, setCount] = useState(120)
   const navigate = useNavigate();
-  const [urlQrCode, setUrlQrCode] = useState(null)
+  const [urlQrCode, setUrlQrCode] = useState("")
   const [status, setStatus] = useState(null)
 
 
 
   //  do one time
-  useEffect(() => {
+  useEffect( ()  => {
 
+   
+    getQr();
+   
+    
+   
 
-    setTimeout(() => {
-      getQr();
-    }, 50);
-    setTimeout(() => {
-
+   setTimeout(() => {
       pingStatus();
-    }, 3000);
+    }, 1000);
 
   }, [])
 
@@ -76,8 +78,8 @@ function Payment() {
 
 
 
-  const getQr = () => {
-    axios.get('http://127.0.0.1:1880/getqr')
+   const  getQr = async () => {
+    await axios.get('http://127.0.0.1:1880/getqr')
       .then((Response) => {
         setUrlQrCode(Response.data)
         console.log(Response.data)
