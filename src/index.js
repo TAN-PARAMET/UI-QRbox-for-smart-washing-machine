@@ -12,6 +12,7 @@ import Home from './views/Home'
 import Payment from './views/Payment'
 import LINE_Notify from './views/LineNotify'
 import Succeed from './views/Succeed'
+import Failed from './views/Failed'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
         <Route path="payment" element={<Payment />} />
         <Route path="line_Notify" element={<LINE_Notify />} />
         <Route path="succeed" element={<Succeed />} />
+        <Route path="failed" element={<Failed />} />
         <Route
           path="*"
           element={
