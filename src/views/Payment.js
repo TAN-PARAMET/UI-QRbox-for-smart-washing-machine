@@ -12,8 +12,8 @@ import { wait } from '@testing-library/user-event/dist/utils';
 
   //  do one time
   useEffect( ()  => {
-
-   
+  
+    
     getQr();
    
     

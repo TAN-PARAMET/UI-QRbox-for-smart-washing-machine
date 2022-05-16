@@ -8,15 +8,24 @@ function Home() {
     const [isCounting, setIsCounting] = useState(false)
     const navigate = useNavigate();
     useEffect(() => {
+
+        async function genQR() {
+            await postQR()
+            console.log("2")
+            navigate('/payment')
+            console.log("3");
+        }
+
         if (count && isCounting > 0) {
             setTimeout(() => {
                 countDown();
             }, 1000);
         }
         if (count <= 0) {
-            // เรียก API
-            postQR();
-            navigate('/payment')
+            // เรียก API 
+            console.log("1")
+            genQR();
+            
         }
         return () => clearTimeout();
     }, [isCounting, count])
@@ -25,19 +34,20 @@ function Home() {
         setCount(count - 1)
     }
 
-    const postQR = () => {
-
-        axios.post('http://127.0.0.1:1880/qr_code', {
-            'amount': 2000,
-            'currency': 'THB',
-            'source[type]': 'promptpay',
-        })
-            .then(function (response) {
-                console.log(response);
+    const postQR = async () => {
+       
+        try {
+     
+            const response = await axios.post('http://127.0.0.1:1880/qr_code', {
+                'amount': 2000,
+                'currency': 'THB',
+                'source[type]': 'promptpay',
             })
-            .catch(function (error) {
-                console.log(error);
-            });
+        console.log(response)    
+        } catch (error) {
+            console.error(error)
+        }
+
     }
 
 
@@ -53,14 +63,20 @@ function Home() {
 
                 กรุณายืนรอ 5 วินาทีหรือกดปุ่มชำระเงินเพื่อใช้บริการ</p>
 
-            <Link to="/payment">
-                <button onClick={() => {
-                    postQR()
+            <div>
+                <button onClick={ async () => {
+                         console.log("1")
+                        await postQR()
+                        console.log("2")
+                        navigate('/payment')
+                        console.log("3");
+                    
+
                     setIsCounting(true)
                 }} className='background' style={{ width: '300px', height: '70px', border: 'none', borderRadius: '100px', cursor: 'pointer', }}>
                     <h1 style={{ margin: '0px', color: '#FFFFFF', fontFamily: 'Prompt', }}>ชำระเงินผ่านQR</h1>
                 </button>
-            </Link>
+            </div>
             <div style={{ margin: '20px auto', width: '100px', height: '5px', background: 'black', }}></div>
             <div className='background' style={{ margin: '20px auto', width: '100px', height: '100px', borderRadius: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
                 <h1 style={{ margin: 'auto', color: 'white', }}>
