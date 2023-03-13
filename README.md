@@ -1,5 +1,5 @@
 # UI QRbox for smart washing machine
-Automatic washing machine system, payment system with Qr code promp
+Automatic washing machine system, payment system with Qr code promptpay
 
 Use React to dev frontend and use nodeRed js to backend
 
